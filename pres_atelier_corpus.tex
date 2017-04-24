@@ -228,9 +228,10 @@
     \begin{column}{0.85\textwidth}
 
       \small
-      \textit{Mer müess mache ass d'Kerisch mittess im Dorf bliebt . \\~\\
-        Mer müass màcha àss d’Kîrech mittess îm Dorf blibt.\\~\\ % (Parler de Guebwiller Haut Rhin)
-        M'r müass màcha àss d'Kirch Mitt'l im Dorf blibt.\\~\\  % (Orthal)
+      \textit{Mer müess mache dass d'Kerisch mittess im Dorf bliebt. \\~\\ %(Alémanique du nord)
+        Mer müess màche  dàss d'Kìrisch mìtel vum Dorf blibt.\\~\\ % Alémanique du nord (graphie orthal)
+        Mer müass màcha dàss d’Kîrch mittess îm Dorf blibt.\\~\\ % (Alémanique du Sud (graphie GRIMAL))
+        M'r müess màcha dàss d'Kìrch mìtel vum Dorf blibt.\\~\\  % (Orthal - Sud)
       }
       (Nous devons garder l'église au centre du village.)
     \end{column}
@@ -244,54 +245,89 @@
 \subsection{Alsacien et traitement automatique des langues (TAL)}
 
 %% LPD - niveaux
-\begin{frame}{Les niveaux d'analyse linguistique en traitement automatique des langues}
+\begin{frame}{Niveaux d'analyse en traitement automatique des langues}
   \centering
   \includegraphics[scale=0.12]{figures/niveaux-0-trans.png}
 \end{frame}
 
 \begin{frame}{L'alsacien : une langue \og peu dotée \fg{} pour le TAL}
   \centering
-  \small \textbf{\uline{1}} outil pour le traitement automatique de l'alsacien : \\~\\~\\
+  \small Outils existant pour le traitement automatique de l'alsacien :\\~\\~\\
   \begin{columns}
     \visible<2->{
-    \begin{column}{0.46\textwidth}
-      \centering
-      un tokéniseur  \footnotemark[1] \\~\\
-      \begin{table}[]
+      \begin{column}{0.4\textwidth}
         \centering
+        \begin{itemize}
+        \item un tokéniseur\footnotemark[1] :
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.6\textwidth}
+        \begin{table}[]
+          \centering
+          
+          %\resizebox{0.8\linewidth}{!}{
+          \begin{tabular}{ccc}
+            \toprule
+            \multicolumn{3}{c}{\textit{\textbf{Ich mach’s}}}  \\ \hline
+            \textit{\textbf{Ich}} & \textit{\textbf{mach}} & \textit{\textbf{’s}}\\
+            \small \og je \fg{}   & \small \og fais \fg{}  & \small \og le \fg{}  \\ \toprule
+          \end{tabular}
+          %}
+        \end{table}
         
-        \resizebox{0.8\linewidth}{!}{
-        \begin{tabular}{ccc}
-          \toprule
-          \multicolumn{3}{c}{\textit{\textbf{Ich mach’s}}}  \\ \hline
-          \textit{\textbf{Ich}} & \textit{\textbf{mach}} & \textit{\textbf{’s}}\\
-          \small \og je \fg{}   & \small \og fais \fg{}  & \small \og le \fg{}  \\ \toprule
-        \end{tabular}
-        }
-      \end{table}
-      
-    \end{column}
-    \begin{column}{0.05\textwidth}
-      $\Rightarrow$
-    \end{column}
+      \end{column}
     }
-    \begin{column}{0.46\textwidth}
-      \visible<3->{\includegraphics[width=0.8\linewidth]{figures/niveaux-trans.png}}
-    \end{column}
   \end{columns}
   \footnotetext[1]{Fourni par Delphine Bernhard, LiLPa, Strasbourg.}
 \end{frame}
 
+\begin{frame}{L'alsacien : une langue \og peu dotée \fg{} pour le TAL}
+  \centering
+  \small Outils existant pour le traitement automatique de l'alsacien :\\
+  \begin{itemize}
+\item un tokéniseur\footnotemark[1]
+    \visible{\item German \tool{TreeTagger}~\cite{Schmid1997}\footnotemark[2]}
+    \visible<3->{\smash{\raisebox{3\dimexpr0.3\baselineskip-9.7\itemsep+5.5\parskip}{$\left.\rule{0pt}{2\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}} 
+  \visible<2->{\item \tool{MElt}~\cite{Denis2010}, \\ entraîné régulièrement avec nos \\ données annotées (\tool{MElt$_{ALS}$})}\\
+  \end{itemize}
+  \bigskip
+  \visible<3->{
+    \Wider[4em]{
+      \begin{table}[]
+        \centering
+        \resizebox{\linewidth}{!}{
+          \begin{tabular}{p{2cm}|cccccccccccc}
+            \toprule  
+            & \textit{\textbf{Ùf}} & \textit{\textbf{e}}                 & \textit{\textbf{Grìeni-Lìnse}}       & \textit{\textbf{Bett}}               & \textit{\textbf{leje}}               & \textit{\textbf{ùn}}                 & \textit{\textbf{d'}}                & \textit{\textbf{Sauce}}              & \textit{\textbf{drùm}}              & \textit{\textbf{erùm}}              & \textit{\textbf{nàppìere}}    & \textit{\textbf{.}}           \\  \hline
+            \tool{Treetagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
+            \tool{MElt$_{ALS}$} &  {\color{red}\textsc{propn}}       &  {\color{red}\textsc{verb}}                       &  {\color{red}\textsc{adj}}                         & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{propn}}                       & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{adv}}} & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}}& {\color{mylightgreen} \textbf{\textsc{punct}}}
+            %% \\ \hline \hline 
+            %% Annotation correcte & \textsc{adp}         & \textsc{det}                        & \textsc{noun}                        & \textsc{noun}                        & \textsc{verb}                        & \textsc{conj}                        & \textsc{det}                        & \textsc{noun}                        & \textsc{adv}                        & \textsc{adp}                        & \textsc{verb}             & {\color{mylightgreen} \textsc{punct}}
+            \\ \toprule            
+
+          \end{tabular}
+        }
+      \end{table}
+    }
+  }
+  %% \begin{column}{0.46\textwidth}
+  %%   \visible<3->{\includegraphics[width=0.8\linewidth]{figures/niveaux-trans.png}}
+  %% \end{column}
+  \footnotetext[1]{Fourni par Delphine Bernhard, LiLPa, Strasbourg.}
+  \footnotetext[2]{Utilisé selon la méthodologie décrite par \cite{bernhard_es_2013}.}
+\end{frame}
 
 %% Apprentissage
 \begin{frame}{\small La création d'outils de TAL \textit{via} l'apprentissage automatique}
   
-  \Wider[3em]{\centering
+\centering
   les corpus annotés sont nécessaires pour \textbf{entraîner} et \textbf{évaluer} les outils automatiques d'annotation \\~\\
-  \begin{figure}
+  \Wider[3em]{
+    \begin{figure}
   \includegraphics[width=0.8\linewidth]{figures/annotation-experts-0.png} 
   \end{figure}
-  \hfill\cite{Fort2012} \\
+    \hfill\cite{Fort2012} \\
+    \centering
   l'annotation manuelle \og classique \fg{} est un processus \textbf{long} et \textbf{coûteux} \\
   \scriptsize par exemple, la construction du \tool{Prague Treebank} a été évaluée à 600~000 \$ par~\cite{Bohmova2001}
 }
@@ -299,13 +335,15 @@
 
 
 \begin{frame}{Notre objectif}
-  Pour pallier le manque de ressources humaines et financières, 
+  \centering
+  pallier le manque de ressources humaines et financières
   \begin{center}
-    nous permettons aux \textbf{locuteurs de l'alsacien} \\ de participer \textbf{collaborativement} \\ à l'annotation en \textbf{parties du discours} d'un corpus de l'alsacien \\ \textit{via} une plateforme Web légèrement ludifiée : \tool{Bisame}.
+    $\rightarrow$ permettre aux \textbf{locuteurs de l'alsacien} de participer \textbf{collaborativement} à l'annotation d'un corpus \textit{via} une plate-forme dédiée \\
+    \visible<2->{$\rightarrow$ mettre en place une \textbf{méthodologie d'évaluation} de l'annotation assurant la qualité des corpus produits}
   \end{center}
 \end{frame}
 
-
+\subsection{Choix méthodologiques et ressources initiales}
 %% POS
 \begin{frame}{Jeu d'étiquettes utilisé}
   \begin{table}[!ht]
@@ -327,16 +365,16 @@
     }
   \end{table}
   \centering
-  Le jeu d'étiquettes universel \footnotemark[1]
+  Liste des étiquettes utilisées selon le classement des créateurs du jeu d'étiquettes.\footnotemark[1]
    
   \footnotetext[1]{http://universaldependencies.org/u/pos/all.html}
 \end{frame}
 % c'est le jeu d'étiquette qui a été utilisé dans les ressources de départ dont nous avons pu tirer parti
 %% CI : ressources
 \begin{frame}{Conditions initiales : les ressources - lexiques}
-  \Wider[3em]{
+  \Wider[2.5em]{
     \begin{itemize}
-    \item     un lexique de 322 \og{mots-outils}\fg{}~\cite{bernhard_es_2013} ($L_{MO}$)
+    \item     un lexique de 322 mots fréquents ~\cite{bernhard_es_2013} ($L_{MO}$)
     \item     un lexique compilé depuis différentes sources de 40~000 entrées ($L_{gsw}$) telles que \\
       
     \end{itemize}
@@ -388,7 +426,7 @@
     \end{table}
     
     \visible<2->{
-    \item un corpus brut de 26~000 tokens issus de la Wikipédia alémanique\footnotemark[2] .
+    \item un corpus brut de 26~000 tokens issus de la Wikipédia alémanique\footnotemark[2] 
     }
   \end{itemize}
   \begin{columns}
@@ -420,46 +458,49 @@
 
 %% CI : outilsx
 \begin{frame}{Conditions initiales : les outils existants}
-  \begin{enumerate}
-  \item German \tool{TreeTagger}~\cite{Schmid1997}\footnote{Utilisé selon la méthodologie décrite par \cite{bernhard_es_2013}}
-    \smash{\raisebox{1.8\dimexpr0.3\baselineskip-6.3\itemsep+5.5\parskip}{$\left.\rule{0pt}{1.5\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}  
-  \item \tool{MElt}~\cite{Denis2010}, \\ entraîné régulièrement avec nos \\ données annotées (\tool{MElt$_{ALS}$})\\
-  \end{enumerate}
-  \bigskip
-  \Wider[4em]{
-  \begin{table}[]
-    \centering
-      \resizebox{\linewidth}{!}{
-        \begin{tabular}{p{2cm}|cccccccccccc}
-          \toprule  
-                         & \textit{\textbf{Ùf}} & \textit{\textbf{e}}                 & \textit{\textbf{Grìeni-Lìnse}}       & \textit{\textbf{Bett}}               & \textit{\textbf{leje}}               & \textit{\textbf{ùn}}                 & \textit{\textbf{d'}}                & \textit{\textbf{Sauce}}              & \textit{\textbf{drùm}}              & \textit{\textbf{erùm}}              & \textit{\textbf{nàppìere}}    & \textit{\textbf{.}}           \\  \hline
-\tool{Treetagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
-\tool{MElt$_{ALS}$} &  {\color{red}\textsc{propn}}       &  {\color{red}\textsc{verb}}                       &  {\color{red}\textsc{adj}}                         & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{propn}}                       & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{adv}}} & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}}& {\color{mylightgreen} \textbf{\textsc{punct}}}
-%% \\ \hline \hline 
-%% Annotation correcte & \textsc{adp}         & \textsc{det}                        & \textsc{noun}                        & \textsc{noun}                        & \textsc{verb}                        & \textsc{conj}                        & \textsc{det}                        & \textsc{noun}                        & \textsc{adv}                        & \textsc{adp}                        & \textsc{verb}             & {\color{mylightgreen} \textsc{punct}}
-\\ \toprule            
+%%   \begin{enumerate}
+%%   \item German \tool{TreeTagger}~\cite{Schmid1997}\footnote{Utilisé selon la méthodologie décrite par \cite{bernhard_es_2013}}
+%%     \smash{\raisebox{1.8\dimexpr0.3\baselineskip-6.3\itemsep+5.5\parskip}{$\left.\rule{0pt}{1.5\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}  
+%%   \item \tool{MElt}~\cite{Denis2010}, \\ entraîné régulièrement avec nos \\ données annotées (\tool{MElt$_{ALS}$})\\
+%%   \end{enumerate}
+%%   \bigskip
+%%   \Wider[4em]{
+%%   \begin{table}[]
+%%     \centering
+%%       \resizebox{\linewidth}{!}{
+%%         \begin{tabular}{p{2cm}|cccccccccccc}
+%%           \toprule  
+%%                          & \textit{\textbf{Ùf}} & \textit{\textbf{e}}                 & \textit{\textbf{Grìeni-Lìnse}}       & \textit{\textbf{Bett}}               & \textit{\textbf{leje}}               & \textit{\textbf{ùn}}                 & \textit{\textbf{d'}}                & \textit{\textbf{Sauce}}              & \textit{\textbf{drùm}}              & \textit{\textbf{erùm}}              & \textit{\textbf{nàppìere}}    & \textit{\textbf{.}}           \\  \hline
+%% \tool{Treetagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
+%% \tool{MElt$_{ALS}$} &  {\color{red}\textsc{propn}}       &  {\color{red}\textsc{verb}}                       &  {\color{red}\textsc{adj}}                         & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{propn}}                       & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{adv}}} & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}}& {\color{mylightgreen} \textbf{\textsc{punct}}}
+%% %% \\ \hline \hline 
+%% %% Annotation correcte & \textsc{adp}         & \textsc{det}                        & \textsc{noun}                        & \textsc{noun}                        & \textsc{verb}                        & \textsc{conj}                        & \textsc{det}                        & \textsc{noun}                        & \textsc{adv}                        & \textsc{adp}                        & \textsc{verb}             & {\color{mylightgreen} \textsc{punct}}
+%% \\ \toprule            
 
-    \end{tabular}
-    }
-  \end{table}
-  }
+%%     \end{tabular}
+%%     }
+%%   \end{table}
+%%   }
 \end{frame}
 
 
 \begin{frame}{L'annotation collaborative avec Bisame}
     \centering
     \includegraphics[width=0.8\linewidth]{figures/annotation-experts.png}
+    \hfill\cite{Fort2012} 
 \end{frame}
 
 \begin{frame}{L'annotation collaborative avec Bisame}
     \centering
     \includegraphics[width=0.8\linewidth]{figures/annotation-bisame-ref-1.png}
+    \hfill\cite{Fort2012}
 \end{frame}
 
 
 \begin{frame}{L'annotation collaborative avec Bisame}
     \centering
     \includegraphics[width=0.8\linewidth]{figures/annotation-bisame-ref-2.png}
+    \hfill\cite{Fort2012} 
 \end{frame}
 
 
@@ -484,26 +525,16 @@
 \begin{frame}{Annoter \textit{via} \tool{Bisame}}
   En fonction des résultats des deux outils de pré-annotation :
   \begin{center}
-    \visible<2->{Si \tool{German Treetagger} \textcolor{red}{!=} \tool{MElt$_{ALS}$}: \\
+    Si \tool{German Treetagger} \textcolor{red}{!=} \tool{MElt$_{ALS}$}: \\
       \begin{figure}     
         \includegraphics[width=0.95\textwidth]{figures/annot2.png}
-    \end{figure}}
-    \visible<3->{Si \tool{German Treetagger} \textcolor{greensolution}{\textbf{=}} \tool{MElt$_{ALS}$}: \\
+    \end{figure}
+    \visible<2->{Si \tool{German Treetagger} \textcolor{greensolution}{\textbf{=}} \tool{MElt$_{ALS}$}: \\
       \begin{figure}   
         \includegraphics[width=0.95\textwidth]{figures/annot1.png}
       \end{figure}
     }    
   \end{center}
-\end{frame}
-
-\begin{frame}{Phase de formation}
-  \Wider[4em]{
-  \begin{center}
-      \begin{figure}     
-        \includegraphics[width=1\textwidth]{figures/training.png}
-    \end{figure}
-  \end{center}
-  }
 \end{frame}
 \begin{frame}{Aide-mémoire \footnotemark[1]}
   \Wider[4em]{
@@ -515,6 +546,17 @@
   }
   \footnotetext[1]{Inspiré du guide d'annotation rédigé par~\cite{Bernhard2016}.}
 \end{frame}
+
+\begin{frame}{Phase de formation}
+  \Wider[4em]{
+  \begin{center}
+      \begin{figure}     
+        \includegraphics[width=1\textwidth]{figures/training.png}
+    \end{figure}
+  \end{center}
+  }
+\end{frame}
+
 
 %% synthèse des annotations obtenues
 \subsection{Traitement des annotations obtenues}
@@ -543,39 +585,40 @@
     \end{column}
   \end{columns}
   \centering
-  \visible<3->{\small chaque participant $P$ est doté d'un score de confiance \\ (réévalué régulièrement) \\~\\   $Confiance_{P}=\frac{NbAnn_{Ref,Correcte}}{NbAnn_{Ref}}$} \\ \bigskip
+  \visible<3->{\small À chaque participant $P$ est associé score de confiance \\ (réévalué régulièrement) \\~\\   $Confiance_{P}=\frac{NbAnn_{Ref,Correcte}}{NbAnn_{Ref}}$} \\ \bigskip
   \visible<4->{\small $\rightarrow$ ce score de confiance est reporté sur les \textbf{annotations} effectuées : \\~\\  $ScoreAnn=Confiance_{P}$}
 \end{frame}
     
 
 \begin{frame}{Traitement des annotations concurrentes - 2}
   \centering
-  \small Calcul de l'étiquette la plus probable pour un token $T$: \\~\\
-  \small $ScoreCat_{T,C_i}$=$max(1 - \prod_{j} (1-ScoreAnn_{T,U_j,C_i}))$
+  \small calcul de l'étiquette la plus probable pour un token $T$: \\~\\
+  \small $ScoreCat_{T,C_i}$=$1 - \prod_{j} (1-ScoreAnn_{T,U_j,C_i}))$ \\
+  \small et $C_{T}=\operatorname*{arg\,max}_i(ScoreAnn_{T,C_i})$                
   \begin{table}[!ht]
     \centering
-%    \resizebox{1\linewidth}{!}{
-      \begin{tabular}{l|p{3.7cm}|p{3.7cm}}
+    \resizebox{1\linewidth}{!}{
+      \begin{tabular}{l|c|c}
         \toprule
         Catégorie choisie &  $ScoreAnn$  (Score de l'\textbf{annotation}) 
         & $ScoreCat$ (Score de la \textbf{catégorie})
         \\ \hline
-        \textsc{propn}                & $0,935$      &          \visible<2->{$0,935$}       \\ \hline
+        \textsc{propn}                & $0,935$      &          \visible<2->{$0,935$}       \\ \hline \hline
         \multirow{3}{*}{\textsc{adj}} & $0,875$       &         \visible<2->{\multirow{3}{*}{$\color{red} \mathbf{0,991}$}} \\ \cline{2-2}
         & $0,846$                                                \\\cline{2-2}
-        & $0,938$                                                 \\ \hline
+        & $0,938$                                                 \\ \hline \hline
         \textsc{noun}                 & $0,25$ & \visible<2->{$0,25$} \\ 
         \toprule
       \end{tabular}
-   % }
+    }
   \end{table}
   \centering
-  \visible<2>{$C_{\textbf{\textit{Stroßburger}}}=$\textsc{adj}}
+  \visible<2>{$\Rightarrow C_{\textbf{\textit{Stroßburger}}}=$\textsc{adj}}
 \end{frame}
 
 
 %%%% Résultats
-\section{Résultats}
+\section{Résultats et analyse}
    
     %% \centering
     %%  \cite{Millour2017}
@@ -599,13 +642,77 @@
 
 \subsection{La participation}
 \begin{frame}{La participation}
-   \Wider[4em]{\begin{figure}[h!tbp]
-      \begin{center} 
-        \includegraphics[width=1\textwidth]{figures/graphique-1-en.png}
-      \end{center}
-  \end{figure}}
-  \\
-  \centering
+  \begin{figure}[h!tbp]
+    \begin{center} 
+      \begin{tikzpicture}
+        \pgfplotsset{
+	  width=0.88\textwidth,
+	  height=0.33\textwidth,
+	  axis x line=bottom,
+        }
+        \begin{axis}[
+    	    axis y line*=left,
+	    ybar=50pt,
+	    bar width=0.075cm,
+	    ymin=0,	
+	    ymax=45,
+	    xlabel near ticks,
+	    ylabel near ticks,
+	    ystep=10,
+	    %ymajorgrids,
+	    %enlarge x limits=0.015,
+	    minor tick num=0,
+	    ylabel=Nb. participants actifs,
+	    symbolic x coords={Mai,Ma2,Ma3,Ma4,Juin,Juin2,Juin3,Juin4,Juillet,Juil2,Juil3,Juil4,Août,Ao2,Ao3,Ao4,Septembre,Se2,Se3,Se4,Octobre,Oc2,Oc3,Oc4,Novembre,No2,No3,No4,Décembre,De2,De3,De4,Janvier,Ja2,Ja3,Ja4,Février,Fe2,Fe3,Fe4},
+	    xtick=data,
+            xticklabels={\empty,mai,\empty,\empty,\empty,juin,\empty,\empty,\empty,juillet,\empty,\empty,\empty,août,\empty,\empty,\empty,septembre,\empty,\empty,\empty,octobre,\empty,\empty,\empty,novembre,\empty,\empty,\empty,décembre,\empty,\empty,\empty,janvier,\empty,\empty,\empty,février},
+            x tick label style={rotate=50, anchor=east},
+    	    legend columns=-1,
+	    scaled ticks=false,
+          ]
+          \addplot[black,fill=black!40,bar shift=-.075cm,line width=0.05pt] table [
+            y=Nb1
+          ] {data/participants-and-annotations-per-week.dat};
+          \label{participants};
+        \end{axis}
+        \begin{axis}[
+	    ybar=0pt,
+	    bar width=0.075cm,
+	    ymin=0,	
+	    ymax=4500,
+            hide x axis,
+            axis y line*=right,
+	    xlabel near ticks,
+	    ylabel near ticks,
+	    ystep=1000,
+	    ymajorgrids,
+	    %enlarge x limits=0.05,
+	    minor tick num=1,
+	    ylabel=Nb. annotations,
+	    symbolic x coords={Mai,Ma2,Ma3,Ma4,Juin,Juin2,Juin3,Juin4,Juillet,Juil2,Juil3,Juil4,Août,Ao2,Ao3,Ao4,Septembre,Se2,Se3,Se4,Octobre,Oc2,Oc3,Oc4,Novembre,No2,No3,No4,Décembre,De2,De3,De4,Janvier,Ja2,Ja3,Ja4,Février,Fe2,Fe3,Fe4},
+	    xtick=data,
+	    x tick label style={rotate=-55, anchor=west},
+    	    legend columns=-1,
+	    scaled ticks=false,
+	    legend style={at={(1,1.4)}}
+          ]
+          \addlegendimage{/pgfplots/refstyle=participants,style={at={(2,3)}}}\addlegendentry{Nb. participants actifs} 
+          \addplot[fill=black!70,bar shift=0cm,line width=0.05pt]table [
+            y=Nb2
+          ] {data/participants-and-annotations-per-week.dat};
+          \addlegendentry{Nb. annotations}
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+  \end{figure}
+
+  %%  \Wider[4em]{\begin{figure}[h!tbp]
+  %%     \begin{center} 
+  %%       \includegraphics[width=1\textwidth]{figures/graphique-1-en.png}
+  %%     \end{center}
+  %% \end{figure}}
+  %% \\
+  %% \centering
   \bigskip
       \small mai 2016:  \small 29 participants ont produit 3~000 annotations \\
       \bigskip
@@ -620,12 +727,12 @@
     \item \textbf{59} jours d'annotation
     \item \textbf{16~628 annotations}, dont :
       \begin{itemize}
-        \item 7~795 sur le corpus de référence (pour l'évaluation)
         \item 8~833 sur le corpus brut (pour la production d'annotation)
+        \item<2-> 7~795 sur le corpus de référence (pour l'évaluation)
       \end{itemize}
       \end{itemize}
   %}
-    \visible<2->{$\rightarrow$ un nouveau corpus annoté de l'alsacien de \textbf{5~725 tokens}}\\
+    \visible<3->{$\rightarrow$ un nouveau corpus annoté de l'alsacien de \textbf{5~725 tokens}}\\
     %\visible<3->{$\rightarrow$ Un outil d'annotation en parties du discours entraîné avec 250 phrases : \textbf{\tool{MElt$_{\mathbf{ALS,250}}$}}.}
 \end{frame}
 
@@ -661,13 +768,20 @@
   \end{figure} 
     \centering
   \tool{MElt$_{ALS_{250}}$} atteint \textbf{82~\%} d'exactitude sur notre corpus de test\\
-  \small pour 10 phrases d'environ 10 mots, 2 mots par phrase sont mal annotés \\
-  \scriptsize (\tool{MElt$_{FR}$} présente 97,7~\% d'exactitude \cite{Denis2010})  \\~\\
-  \small
-  \visible<2>{les performances de l'existant sur l'alsacien sont presque atteintes mais c'est encore très insuffisant}
+  
   }
 \end{frame}
 
+\begin{frame}{Les performances de \tool{MElt$_{ALS}$}}
+    \tool{MElt$_{ALS_{250}}$} atteint \textbf{82~\%} d'exactitude sur notre corpus de test\\
+    %\Wider[3em]{
+    \centering
+    pour 10 phrases d'environ 10 mots, 2 mots par phrase sont mal annotés \\
+  \scriptsize (\tool{MElt$_{FR}$} présente 97,7~\% d'exactitude \cite{Denis2010})  \\~\\
+
+  \visible<2>{les performances du \tool{Stanford tagger}  sur l'alsacien sont presque atteintes mais c'est encore très insuffisant}
+
+\end{frame}
 
 
 \begin{frame}{Les performances de \tool{MElt$_{ALS}$}}
@@ -688,20 +802,23 @@
   \Wider[2em]{\  \centering
   La méthodologie est prometteuse mais perfectible 
   \begin{itemize}
-  \item Manque de variété des corpus disponibles \visible<2->{\textbf{ \small \color{greensolution} $\rightarrow$  permettre la soumission de \textbf{textes personnels}~\cite{Liberm2016}. }}
-   \visible<3->{\item Qualité des annotations imparfaite} \visible<4->{\textbf{ \small \color{greensolution}$\rightarrow$  repenser le guide d'annotation et la stratégie d'évaluation des participants.} }
-   \visible<5->{\item Ludification insuffisante pour maintenir motivation et volition~\cite{Fenouillet2009}} \visible<6->{\textbf{ \small \color{greensolution} $\rightarrow$  rendre la plate-forme autonome (e-mails de rappel, \og une phrase par jour \fg{}).}}
+  \item  \small Manque de variété des corpus disponibles \visible<2->{\textbf{\normalsize \color{greensolution} $\rightarrow$  permettre la soumission de \textbf{textes personnels}~\cite{Liberm2016}. }}
+   \visible<3->{\item  \small Qualité des annotations imparfaite} \visible<4->{\textbf{ \normalsize \color{greensolution}$\rightarrow$  repenser le guide d'annotation et la stratégie d'évaluation des participants.} }
+   \visible<5->{\item  \small Ludification insuffisante pour maintenir \textbf{motivation} \visible<6->{et \textbf{volition}}} \visible<7->{\textbf{ \normalsize \color{greensolution} $\rightarrow$~rendre la plate-forme autonome (e-mails de rappel, \og une phrase par jour \fg{}).}}
   \end{itemize}
   }
-
+  \begin{center}
+  \visible<5>{\og capacité à \textbf{attirer} des participants \fg{}}\\
+  \visible<6>{\og capacité à \textbf{faire revenir} des participants~\cite{Fenouillet2009} \fg{}}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Conclusion et perspectives}
     \begin{itemize}
       %\item Reinforce community feeling \textit{within} the platform thanks to \textbf{social incentives}. %as they have been appreciated so far and have proved their efficiency elsewhere
-    \item améliorer le jeu d'étiquettes (à compléter)
+    \item adapter le jeu d'étiquettes
     \item<2-> travailler à une meilleure prise en compte de la diversité dialectale et orthographique.
-    \item<3-> adapter la plate-forme à une autre langue peu dotée : le créole guadeloupéen (\small projet en cours avec Gwladys Feler, étudiante en M1 Master LPL : Langue et informatique à Université Paris Sorbonne)
+    \item<3-> adapter la plate-forme à une autre langue peu dotée : le créole guadeloupéen (\small projet en cours avec Gwladys Feler, étudiante en Master 1)
       %\item<2-> Try to manage better dialectal diversity in the written form. % and I take advantage of this talk to say that if you have some references on the subject I would me really glad to have them ! 
     \end{itemize}
 \end{frame}
