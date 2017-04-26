@@ -174,7 +174,7 @@
 %% }
 \makeatother
 
-\title{Construire un corpus annoté pour une langue peu dotée : \\  annotation collaborative d'un corpus de l'alsacien en partie du discours}
+\title{Construire un corpus annoté pour une langue peu dotée : \\  annotation collaborative en partie du discours d'un corpus de l'alsacien }
 %\subtitle{Analysis of the Participation on a Crowdsourcing Annotation Platform}
 %\date{\today}
 \author{\textbf{Alice Millour}, Kar\"en Fort}
@@ -190,7 +190,7 @@
         \titlepage
 \end{frame}
 
-\begin{frame}{Table of Contents}
+\begin{frame}{Plan}
     \tableofcontents[hideallsubsections]
 \end{frame}
 
@@ -226,19 +226,21 @@
       \end{tikzpicture}
     \end{column}
     \begin{column}{0.85\textwidth}
-
       \small
-      \textit{Mer müess mache dass d'Kerisch mittess im Dorf bliebt. \\~\\ %(Alémanique du nord)
-        Mer müess màche  dàss d'Kìrisch mìtel vum Dorf blibt.\\~\\ % Alémanique du nord (graphie orthal)
-        Mer müass màcha dàss d’Kîrch mittess îm Dorf blibt.\\~\\ % (Alémanique du Sud (graphie GRIMAL))
-        M'r müess màcha dàss d'Kìrch mìtel vum Dorf blibt.\\~\\  % (Orthal - Sud)
+      \textit{\textcolor{nla}{Mer müess mache dass d'Kerisch mittess im Dorf bliebt.} \\~\\ %(Alémanique du nord)
+        \textcolor{nla}{Mer müess màche  dàss d'Kìrisch mìtel im Dorf blibt}.*\\~\\ % Alémanique du nord (graphie orthal)
+        \textcolor{sla}{Mer müass màcha dàss d’Kîrch mittess îm Dorf blibt}.\\~\\ % (Alémanique du Sud (graphie GRIMAL))
+        \textcolor{sla}{M'r müess màcha dàss d'Kìrch mìtel im Dorf blibt}.* \\~\\  % (Orthal - Sud)
       }
-      (Nous devons garder l'église au centre du village.)
+      \footnotesize *rédigé en graphie ORTHAL \footnotemark[1] \\~\\ 
+      %\footnotesize (Nous devons garder l'église au centre du village.)
     \end{column}
   \end{columns}
   \begin{center}
-    \visible<2->{Malgré plusieurs propositions de standardisation, il n'existe \uline{\textbf{pas d'orthographe consensuelle à ce jour}}}
+    \normalsize
+    \visible<2->{Malgré plusieurs propositions de standardisation, il n'existe \uline{\textbf{pas d'orthographe consensuelle à ce jour}}} 
   \end{center}
+  \footnotetext[1]{Voir \cite{Zeidler2008}.}
 \end{frame}
 
 %%%% Alsacien et TAL
@@ -286,9 +288,10 @@
   \small Outils existant pour le traitement automatique de l'alsacien :\\
   \begin{itemize}
 \item un tokéniseur\footnotemark[1]
-    \visible{\item German \tool{TreeTagger}~\cite{Schmid1997}\footnotemark[2]}
-    \visible<3->{\smash{\raisebox{3\dimexpr0.3\baselineskip-9.7\itemsep+5.5\parskip}{$\left.\rule{0pt}{2\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}} 
-  \visible<2->{\item \tool{MElt}~\cite{Denis2010}, \\ entraîné régulièrement avec nos \\ données annotées (\tool{MElt$_{ALS}$})}\\
+    \visible{\item  \tool{Stanford POS Tagger}\\~\cite{Toutanova2003}\footnotemark[2]}
+    \visible<2->{\item \tool{MElt}~\cite{Denis2010}, \\ entraîné régulièrement avec nos
+\visible<3->{\smash{\raisebox{3\dimexpr0.3\baselineskip-5\itemsep+5.5\parskip}{$\left.\rule{0pt}{2.3\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}}
+      \\ données annotées (\tool{MElt$_{ALS}$})}\\
   \end{itemize}
   \bigskip
   \visible<3->{
@@ -296,10 +299,10 @@
       \begin{table}[]
         \centering
         \resizebox{\linewidth}{!}{
-          \begin{tabular}{p{2cm}|cccccccccccc}
+          \begin{tabular}{p{3cm}|cccccccccccc}
             \toprule  
             & \textit{\textbf{Ùf}} & \textit{\textbf{e}}                 & \textit{\textbf{Grìeni-Lìnse}}       & \textit{\textbf{Bett}}               & \textit{\textbf{leje}}               & \textit{\textbf{ùn}}                 & \textit{\textbf{d'}}                & \textit{\textbf{Sauce}}              & \textit{\textbf{drùm}}              & \textit{\textbf{erùm}}              & \textit{\textbf{nàppìere}}    & \textit{\textbf{.}}           \\  \hline
-            \tool{Treetagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
+            \tool{Stanford Tagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
             \tool{MElt$_{ALS}$} &  {\color{red}\textsc{propn}}       &  {\color{red}\textsc{verb}}                       &  {\color{red}\textsc{adj}}                         & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{propn}}                       & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{adv}}} & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}}& {\color{mylightgreen} \textbf{\textsc{punct}}}
             %% \\ \hline \hline 
             %% Annotation correcte & \textsc{adp}         & \textsc{det}                        & \textsc{noun}                        & \textsc{noun}                        & \textsc{verb}                        & \textsc{conj}                        & \textsc{det}                        & \textsc{noun}                        & \textsc{adv}                        & \textsc{adp}                        & \textsc{verb}             & {\color{mylightgreen} \textsc{punct}}
@@ -328,53 +331,48 @@
   \end{figure}
     \hfill\cite{Fort2012} \\
     \centering
-  l'annotation manuelle \og classique \fg{} est un processus \textbf{long} et \textbf{coûteux} \\
-  \scriptsize par exemple, la construction du \tool{Prague Treebank} a été évaluée à 600~000 \$ par~\cite{Bohmova2001}
+  \visible<2->{l'annotation manuelle \og classique \fg{} est un processus \textbf{long} et \textbf{coûteux} \\
+  \scriptsize par exemple, la construction du \tool{Prague Treebank} en 5 ans a été évaluée à 600~000 \$ par~\cite{Bohmova2001}}
 }
-\end{frame}
+\end{frame} 
 
 
 \begin{frame}{Notre objectif}
   \centering
   pallier le manque de ressources humaines et financières
   \begin{center}
-    $\rightarrow$ permettre aux \textbf{locuteurs de l'alsacien} de participer \textbf{collaborativement} à l'annotation d'un corpus \textit{via} une plate-forme dédiée \\
+    $\rightarrow$ permettre aux \textbf{locuteurs de l'alsacien} de participer \textbf{collaborativement} à l'annotation d'un corpus \\ \textit{via} une plate-forme dédiée \\~\\
     \visible<2->{$\rightarrow$ mettre en place une \textbf{méthodologie d'évaluation} de l'annotation assurant la qualité des corpus produits}
   \end{center}
 \end{frame}
 
-\subsection{Choix méthodologiques et ressources initiales}
+\subsection{Ressources initiales et annotation collaborative de corpus}
 %% POS
 \begin{frame}{Jeu d'étiquettes utilisé}
   \begin{table}[!ht]
     \centering
     \resizebox{0.7\linewidth}{!}{
-      \begin{tabular}{l|l|l}
+      \begin{tabular}{ccccc}
         \toprule
-        \textbf{Classes ouvertes} & \textbf{Classes fermées} & \textbf{Autres} \\
-        \hline
-        \textsc{adj} & \textsc{adp} & \textsc{punct} \\
-        \textsc{adv} & \textsc{aux} & \textsc{sym} \\
-        \textsc{intj} & \textsc{conj} & \textsc{x} \\
-        \textsc{noun} & \textsc{det} &  \\
-        \textsc{propn} & \textsc{num} & 	 \\
-        \textsc{verb} & \textsc{part} &  \\
-        &\textsc{pron} &\\
-        &\textsc{sconj} & \\            \toprule  
+        \textsc{adj} & \textsc{adp} &  \textsc{adv} & \textsc{aux} & \textsc{conj} \\
+        \textsc{det} & \textsc{sconj} & \textsc{intj} &  \textsc{noun}  &  \textsc{num} \\
+         \textsc{part} & \textsc{pron} & \textsc{propn} & \textsc{punct }& \textsc{sconj} \\
+         & \textsc{sym} &   \textsc{verb} &  \textsc{x}&  \\
+         \toprule  
       \end{tabular}
     }
   \end{table}
   \centering
-  Liste des étiquettes utilisées selon le classement des créateurs du jeu d'étiquettes.\footnotemark[1]
    
-  \footnotetext[1]{http://universaldependencies.org/u/pos/all.html}
+    17 catégories\footnotemark[1]
+  \footnotetext[1]{Voir \url{http://universaldependencies.org/u/pos/all.html},\\ \cite{petrov2011universal}.}
 \end{frame}
 % c'est le jeu d'étiquette qui a été utilisé dans les ressources de départ dont nous avons pu tirer parti
 %% CI : ressources
 \begin{frame}{Conditions initiales : les ressources - lexiques}
   \Wider[2.5em]{
     \begin{itemize}
-    \item     un lexique de 322 mots fréquents ~\cite{bernhard_es_2013} ($L_{MO}$)
+    \item     un lexique de 322 mots fréquents ($L_{MO}$) ~\cite{bernhard_es_2013}
     \item     un lexique compilé depuis différentes sources de 40~000 entrées ($L_{gsw}$) telles que \\
       
     \end{itemize}
@@ -412,7 +410,7 @@
 
 \begin{frame}{Conditions initiales : les ressources - corpus} 
   \begin{itemize}
-  \item un corpus de référence (102 phrases) annoté par deux expertes linguistes et utilisé pour évaluer notre système\\
+  \item \small  \textbf{un corpus annoté de référence}\footnotemark[1] utilisé pour former les participants et évaluer notre système  (102 phrases) \\
     \vspace{-0.3cm}
     \begin{table}[]
       \centering
@@ -426,20 +424,21 @@
     \end{table}
     
     \visible<2->{
-    \item un corpus brut de 26~000 tokens issus de la Wikipédia alémanique\footnotemark[2] 
+    \item \small \textbf{un corpus brut} issu de la Wikipédia alémanique\footnotemark[2] 
     }
   \end{itemize}
+  \vspace{-0.2cm}
   \begin{columns}
     \begin{column}{0.2\textwidth}
       \begin{tikzpicture}
-        \node (img0) {\includegraphics[height=4.5cm]{figures/Elsass2.png}};
+        \node (img0) {\includegraphics[height=4.1cm]{figures/Elsass2.png}};
       \end{tikzpicture}
     \end{column}
     \begin{column}{0.8\textwidth}
-      %\resizebox{\linewidth}{!}{
       \begin{table}[]
         \centering
-        \small	
+        \small
+        \resizebox{1\linewidth}{!}{
         \begin{tabular}{l|l|c|c}
           \toprule
           & Source & \multicolumn{2}{p{3cm}}{Nb. tokens} \\ \hline
@@ -447,17 +446,18 @@
           \multicolumn{1}{l|}{} & \sla Recette de cuisine  & 362 &  \\ \cline{2-3} 
           \multicolumn{1}{l|}{} & \sla Pièce de théâtre
           & 231 & \pause \\ \hline \hline 
-          \multicolumn{1}{l|}{Corpus brut} & \nla \tool{Wikipédia}  & \multicolumn{2}{p{3cm}}{8~833} \\ \toprule  
+          \multicolumn{1}{l|}{Corpus brut} & \nla \tool{Wikipédia}  & \multicolumn{2}{c}{8~833} \\ \toprule  
         \end{tabular}
-        %}
+        }
       \end{table}
     \end{column}
   \end{columns}
-  \footnotetext[2]{http///als.wikipedia.org}
+  \tiny\footnotetext[1]{\tiny Par Delphine Bernhard et Lucie Steiblé, LiLPa, Strasbourg.}
+  \footnotetext[2]{\tiny Voir : http///als.wikipedia.org.}
 \end{frame}
 
 %% CI : outilsx
-\begin{frame}{Conditions initiales : les outils existants}
+%\begin{frame}{Conditions initiales : les outils existants}
 %%   \begin{enumerate}
 %%   \item German \tool{TreeTagger}~\cite{Schmid1997}\footnote{Utilisé selon la méthodologie décrite par \cite{bernhard_es_2013}}
 %%     \smash{\raisebox{1.8\dimexpr0.3\baselineskip-6.3\itemsep+5.5\parskip}{$\left.\rule{0pt}{1.5\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}  
@@ -481,25 +481,28 @@
 %%     }
 %%   \end{table}
 %%   }
-\end{frame}
+%\end{frame}
 
 
-\begin{frame}{L'annotation collaborative avec Bisame}
-    \centering
+\begin{frame}{L'annotation collaborative avec \tool{Bisame}}
+  \begin{center}
     \includegraphics[width=0.8\linewidth]{figures/annotation-experts.png}
+  \end{center}
     \hfill\cite{Fort2012} 
 \end{frame}
 
-\begin{frame}{L'annotation collaborative avec Bisame}
-    \centering
+\begin{frame}{L'annotation collaborative avec \tool{Bisame}}
+  \begin{center}
     \includegraphics[width=0.8\linewidth]{figures/annotation-bisame-ref-1.png}
-    \hfill\cite{Fort2012}
+  \end{center}
+  \hfill\cite{Fort2012}
 \end{frame}
 
 
-\begin{frame}{L'annotation collaborative avec Bisame}
-    \centering
+\begin{frame}{L'annotation collaborative avec \tool{Bisame}}
+  \begin{center}
     \includegraphics[width=0.8\linewidth]{figures/annotation-bisame-ref-2.png}
+  \end{center}
     \hfill\cite{Fort2012} 
 \end{frame}
 
@@ -525,11 +528,11 @@
 \begin{frame}{Annoter \textit{via} \tool{Bisame}}
   En fonction des résultats des deux outils de pré-annotation :
   \begin{center}
-    Si \tool{German Treetagger} \textcolor{red}{!=} \tool{MElt$_{ALS}$}: \\
+    Si \tool{Stanford Tagger} \textcolor{red}{!=} \tool{MElt$_{ALS}$}: \\
       \begin{figure}     
         \includegraphics[width=0.95\textwidth]{figures/annot2.png}
     \end{figure}
-    \visible<2->{Si \tool{German Treetagger} \textcolor{greensolution}{\textbf{=}} \tool{MElt$_{ALS}$}: \\
+    \visible<2->{Si \tool{Stanford Tagger} \textcolor{greensolution}{\textbf{=}} \tool{MElt$_{ALS}$}: \\
       \begin{figure}   
         \includegraphics[width=0.95\textwidth]{figures/annot1.png}
       \end{figure}
@@ -555,6 +558,13 @@
     \end{figure}
   \end{center}
   }
+\end{frame}
+
+\begin{frame}{Phase de production d'annotations}
+    \begin{itemize}
+    \item 3 phrases issues du corpus brut
+    \item 1 phrase issue du corpus de référence pour l'\textbf{évaluation régulière du participant}
+    \end{itemize}
 \end{frame}
 
 
@@ -593,7 +603,7 @@
 \begin{frame}{Traitement des annotations concurrentes - 2}
   \centering
   \small calcul de l'étiquette la plus probable pour un token $T$: \\~\\
-  \small $ScoreCat_{T,C_i}$=$1 - \prod_{j} (1-ScoreAnn_{T,U_j,C_i}))$ \\
+  \small $ScoreCat_{T,C_i}$=$1 - \prod_{j} (1-ScoreAnn_{T,U_j,C_i}))$ \\~\\
   \small et $C_{T}=\operatorname*{arg\,max}_i(ScoreAnn_{T,C_i})$                
   \begin{table}[!ht]
     \centering
@@ -653,7 +663,7 @@
         \begin{axis}[
     	    axis y line*=left,
 	    ybar=50pt,
-	    bar width=0.075cm,
+	    bar width=0.1125cm,
 	    ymin=0,	
 	    ymax=45,
 	    xlabel near ticks,
@@ -670,14 +680,14 @@
     	    legend columns=-1,
 	    scaled ticks=false,
           ]
-          \addplot[black,fill=black!40,bar shift=-.075cm,line width=0.05pt] table [
+          \addplot[black,fill=black!40,bar shift=-.055125cm,line width=0.05pt] table [
             y=Nb1
           ] {data/participants-and-annotations-per-week.dat};
           \label{participants};
         \end{axis}
         \begin{axis}[
 	    ybar=0pt,
-	    bar width=0.075cm,
+	    bar width=0.099cm,
 	    ymin=0,	
 	    ymax=4500,
             hide x axis,
@@ -697,7 +707,7 @@
 	    legend style={at={(1,1.4)}}
           ]
           \addlegendimage{/pgfplots/refstyle=participants,style={at={(2,3)}}}\addlegendentry{Nb. participants actifs} 
-          \addplot[fill=black!70,bar shift=0cm,line width=0.05pt]table [
+          \addplot[fill=black!70,bar shift=0.055125cm,line width=0.05pt]table [
             y=Nb2
           ] {data/participants-and-annotations-per-week.dat};
           \addlegendentry{Nb. annotations}
@@ -705,7 +715,8 @@
       \end{tikzpicture}
     \end{center}
   \end{figure}
-
+  \vspace{-1.8cm}
+  \hfill \includegraphics[width=0.5cm]{figures/caution.png} \\
   %%  \Wider[4em]{\begin{figure}[h!tbp]
   %%     \begin{center} 
   %%       \includegraphics[width=1\textwidth]{figures/graphique-1-en.png}
@@ -773,13 +784,14 @@
 \end{frame}
 
 \begin{frame}{Les performances de \tool{MElt$_{ALS}$}}
-    \tool{MElt$_{ALS_{250}}$} atteint \textbf{82~\%} d'exactitude sur notre corpus de test\\
+      \centering
+
+    \tool{MElt$_{ALS_{250}}$} atteint \textbf{82~\%} d'exactitude sur notre corpus de test\\~\\
     %\Wider[3em]{
-    \centering
-    pour 10 phrases d'environ 10 mots, 2 mots par phrase sont mal annotés \\
+    \small pour 10 phrases d'environ 10 mots, 2 mots par phrase sont mal annotés \\
   \scriptsize (\tool{MElt$_{FR}$} présente 97,7~\% d'exactitude \cite{Denis2010})  \\~\\
 
-  \visible<2>{les performances du \tool{Stanford tagger}  sur l'alsacien sont presque atteintes mais c'est encore très insuffisant}
+  \visible<2>{\normalsize les performances du \tool{Stanford Tagger}  sur l'alsacien sont presque atteintes mais c'est encore très insuffisant}
 
 \end{frame}
 
@@ -799,28 +811,47 @@
 \end{frame}
 
 \begin{frame}{Conclusion et perspectives}
-  \Wider[2em]{\  \centering
-  La méthodologie est prometteuse mais perfectible 
+  \centering
+  la méthodologie développée est prometteuse mais perfectible
+  \Wider[2em]{    
+  \vspace{0.8cm}
   \begin{itemize}
-  \item  \small Manque de variété des corpus disponibles \visible<2->{\textbf{\normalsize \color{greensolution} $\rightarrow$  permettre la soumission de \textbf{textes personnels}~\cite{Liberm2016}. }}
-   \visible<3->{\item  \small Qualité des annotations imparfaite} \visible<4->{\textbf{ \normalsize \color{greensolution}$\rightarrow$  repenser le guide d'annotation et la stratégie d'évaluation des participants.} }
-   \visible<5->{\item  \small Ludification insuffisante pour maintenir \textbf{motivation} \visible<6->{et \textbf{volition}}} \visible<7->{\textbf{ \normalsize \color{greensolution} $\rightarrow$~rendre la plate-forme autonome (e-mails de rappel, \og une phrase par jour \fg{}).}}
+  \item<2->  \small manque de variété des corpus disponibles \visible<3->{\textbf{\normalsize \color{greensolution} $\rightarrow$  permettre la soumission de \textbf{textes personnels}~\cite{Liberm2016} }}
+   \visible<4->{\item  \small qualité d'annotation encore imparfaite} \visible<5->{\textbf{ \normalsize \color{greensolution}$\rightarrow$  repenser le guide d'annotation et la phase de formation} }
   \end{itemize}
   }
+\end{frame}
+
+\begin{frame}{Conclusion et perspectives}
+  \centering
+  La méthodologie est prometteuse mais perfectible
+  \Wider[2em]{    
+    \vspace{0.8cm}
+    \begin{itemize}
+    \item  \small aspect ludique insuffisant pour maintenir \textbf{motivation} \visible<2->{et \textbf{volition}} \visible<3->{\textbf{\normalsize \color{greensolution} { \visible<3->{$\rightarrow$~développer de nouvelles fonctionalités ludiques \og classiques \fg{}} \\
+           \visible<4->{$\rightarrow$ jouer sur le sentiment d'appartenance à la communauté dialectophone} \\
+           \visible<5->{$\rightarrow$ améliorer l'autonomie de la plate-forme (e-mails de rappel, \og une phrase par jour \fg{})}}}}
+    \end{itemize}
+  }
   \begin{center}
-  \visible<5>{\og capacité à \textbf{attirer} des participants \fg{}}\\
-  \visible<6>{\og capacité à \textbf{faire revenir} des participants~\cite{Fenouillet2009} \fg{}}
+    \visible<1>{\og capacité à \textbf{attirer} des participants \fg{}}\\
+    \visible<2>{\og capacité à \textbf{faire revenir} des participants~\cite{Fenouillet2009} \fg{}}
   \end{center}
 \end{frame}
 
 \begin{frame}{Conclusion et perspectives}
+  \centering
+  La méthodologie est prometteuse mais perfectible
+  \Wider[2em]{    
+  \vspace{0.8cm}
     \begin{itemize}
       %\item Reinforce community feeling \textit{within} the platform thanks to \textbf{social incentives}. %as they have been appreciated so far and have proved their efficiency elsewhere
-    \item adapter le jeu d'étiquettes
-    \item<2-> travailler à une meilleure prise en compte de la diversité dialectale et orthographique.
+    \item adapter le jeu d'étiquettes universel aux spécificités de l'alsacien
+    \item<2-> travailler à une meilleure intégration de la diversité dialectale et orthographique
     \item<3-> adapter la plate-forme à une autre langue peu dotée : le créole guadeloupéen (\small projet en cours avec Gwladys Feler, étudiante en Master 1)
       %\item<2-> Try to manage better dialectal diversity in the written form. % and I take advantage of this talk to say that if you have some references on the subject I would me really glad to have them ! 
     \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}[standout]
