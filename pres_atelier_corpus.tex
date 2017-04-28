@@ -52,14 +52,7 @@
 \definecolor{myred}{HTML}{E50707}
 \definecolor{mylightgreen}{HTML}{00A339}
 \definecolor{greensolution}{HTML}{2AAE00}
-%\usefonttheme{structuresmallcapsserif} 
-
-%\usefonttheme{smallcapsserif} 
 \usefonttheme{serif} 
-%\setsansfont[BoldFont={Source Sans Pro Semibold},           Numbers={OldStyle}]{Source Sans Pro}
-
-%\metroset{titleformat=allsmallcaps}
-%\usefonttheme{serif} % default family is serif
 \setbeamercolor{frametitle}{bg=mygreen}
 \setbeamercolor{example text}{fg=mylightgreen}
 \setbeamercolor{alerted text}{fg=myred}
@@ -80,10 +73,6 @@
   },
 }
 
-% Prevent section slide 
-%\newcommand{\metropolis@disablesectionpage}{\AtBeginSection{% intentionally empty1
-%}
-%}
 \AtBeginSection[]
                   {
                     \begin{frame}{Plan}
@@ -119,11 +108,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[frenchb]{babel}
-%\setbeamerfont{frametitle}{shape=\scshape}
-%\usepackage{setspace}
-
 
 \makeatletter
+% Customizing Title Page
 \setbeamertemplate{title page}{
   \begin{beamercolorbox}[sep=8pt,center]{title}\usebeamerfont{title}\inserttitle\par%
         \end{beamercolorbox}
@@ -139,43 +126,9 @@
   \end{minipage}
 }
 
-
-
-%% \setbeamertemplate{title page}
-%% {
-%%     \vbox{}
-%%     \vfill
-%%     \begingroup
-%%     \centering
-%%     \begin{beamercolorbox}[sep=8pt,center]{title}
-%%         \usebeamerfont{title}\inserttitle\par%
-%%         \ifx\insertsubtitle\@empty%
-%%         \else%
-%%         \vskip0.25em%
-%%         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
-%%             \visible<2->{\insertsubtitle}
-
-%%             \visible<3>{I am a second line}\par}%
-%%         \fi%     
-%%     \end{beamercolorbox}%
-%%     \vskip1em\par
-%%     \begin{beamercolorbox}[sep=8pt,center]{author}
-%%         \usebeamerfont{author}\insertauthor
-%%     \end{beamercolorbox}
-%%     \begin{beamercolorbox}[sep=8pt,center]{institute}
-%%         \usebeamerfont{institute}\insertinstitute
-%%     \end{beamercolorbox}
-%%     \begin{beamercolorbox}[sep=8pt,center]{date}
-%%         \usebeamerfont{date}\insertdate
-%%     \end{beamercolorbox}\vskip0.5em
-%%     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-%%     \endgroup
-%%     \vfill
-%% }
 \makeatother
 
 \title{Construire un corpus annoté pour une langue peu dotée : \\  annotation collaborative en partie du discours d'un corpus de l'alsacien }
-%\subtitle{Analysis of the Participation on a Crowdsourcing Annotation Platform}
 %\date{\today}
 \author{\textbf{Alice Millour}, Kar\"en Fort}
 \institute{Recherches linguistiques et corpus}
@@ -194,7 +147,9 @@
     \tableofcontents[hideallsubsections]
 \end{frame}
 
+%% SECTION L'alsacien
 \section{L'alsacien}
+
 \subsection{Elsässerditsch}
 \begin{frame}{Elsässerditsch}
   \Wider[3em]{
@@ -217,7 +172,6 @@
 \end{frame}
 
 %% Le continuum
-
 \begin{frame}{Le continuum dialectal}
   \begin{columns}
     \begin{column}{0.25\textwidth}
@@ -243,10 +197,9 @@
   \footnotetext[1]{Voir \cite{Zeidler2008}.}
 \end{frame}
 
-%%%% Alsacien et TAL
+%% Alsacien et TAL
 \subsection{Alsacien et traitement automatique des langues (TAL)}
 
-%% LPD - niveaux
 \begin{frame}{Niveaux d'analyse en traitement automatique des langues}
   \centering
   \includegraphics[scale=0.12]{figures/niveaux-0-trans.png}
@@ -304,8 +257,6 @@
             & \textit{\textbf{Ùf}} & \textit{\textbf{e}}                 & \textit{\textbf{Grìeni-Lìnse}}       & \textit{\textbf{Bett}}               & \textit{\textbf{leje}}               & \textit{\textbf{ùn}}                 & \textit{\textbf{d'}}                & \textit{\textbf{Sauce}}              & \textit{\textbf{drùm}}              & \textit{\textbf{erùm}}              & \textit{\textbf{nàppìere}}    & \textit{\textbf{.}}           \\  \hline
             \tool{Stanford Tagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
             \tool{MElt$_{ALS}$} &  {\color{red}\textsc{propn}}       &  {\color{red}\textsc{verb}}                       &  {\color{red}\textsc{adj}}                         & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{propn}}                       & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{adv}}} & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}}& {\color{mylightgreen} \textbf{\textsc{punct}}}
-            %% \\ \hline \hline 
-            %% Annotation correcte & \textsc{adp}         & \textsc{det}                        & \textsc{noun}                        & \textsc{noun}                        & \textsc{verb}                        & \textsc{conj}                        & \textsc{det}                        & \textsc{noun}                        & \textsc{adv}                        & \textsc{adp}                        & \textsc{verb}             & {\color{mylightgreen} \textsc{punct}}
             \\ \toprule            
 
           \end{tabular}
@@ -313,16 +264,12 @@
       \end{table}
     }
   }
-  %% \begin{column}{0.46\textwidth}
-  %%   \visible<3->{\includegraphics[width=0.8\linewidth]{figures/niveaux-trans.png}}
-  %% \end{column}
   \footnotetext[1]{Fourni par Delphine Bernhard, LiLPa, Strasbourg.}
   \footnotetext[2]{Utilisé selon la méthodologie décrite par \cite{bernhard_es_2013}.}
 \end{frame}
 
 %% Apprentissage
 \begin{frame}{\small La création d'outils de TAL \textit{via} l'apprentissage automatique}
-  
 \centering
   les corpus annotés sont nécessaires pour \textbf{entraîner} et \textbf{évaluer} les outils automatiques d'annotation \\~\\
   \Wider[3em]{
@@ -336,7 +283,7 @@
 }
 \end{frame} 
 
-
+%% Objectif 
 \begin{frame}{Notre objectif}
   \centering
   pallier le manque de ressources humaines et financières
@@ -347,6 +294,7 @@
 \end{frame}
 
 \subsection{Ressources initiales et annotation collaborative de corpus}
+
 %% POS
 \begin{frame}{Jeu d'étiquettes utilisé}
   \begin{table}[!ht]
@@ -367,14 +315,13 @@
     17 catégories\footnotemark[1]
   \footnotetext[1]{Voir \url{http://universaldependencies.org/u/pos/all.html},\\ \cite{petrov2011universal}.}
 \end{frame}
-% c'est le jeu d'étiquette qui a été utilisé dans les ressources de départ dont nous avons pu tirer parti
+
 %% CI : ressources
 \begin{frame}{Conditions initiales : les ressources - lexiques}
   \Wider[2.5em]{
     \begin{itemize}
     \item     un lexique de 322 mots fréquents ($L_{MO}$) ~\cite{bernhard_es_2013}
     \item     un lexique compilé depuis différentes sources de 40~000 entrées ($L_{gsw}$) telles que \\
-      
     \end{itemize}
     \begin{table}[]
       \centering
@@ -389,24 +336,7 @@
       }
     \end{table}
   }
-  %% \visible<2->{
-    %%   \begin{table}[]
-    %%     \centering
-    %%     \small	
-    %%     \begin{tabular}{l|l|c|c}
-    %%       \toprule
-    %%       & Source & \multicolumn{2}{l}{Nb. mots} \\ \hline
-    %%       \multicolumn{1}{l|}{\multirow{3}{*}{\pbox{2
-    %%             cm}{Corpus de \\référence}}} & \multirow{2}{*} \nla\tool{Wikipédia} & {875} & \multirow{3}{*}{1.468} \\\cline{2-3} 
-    %%         \multicolumn{1}{l|}{} & \sla Recette de cuisine  & 362 &  \\ \cline{2-3} 
-    %%         \multicolumn{1}{l|}{} & \sla Pièce de théâtre
-    %%         & 231 & \pause \\ \hline \hline 
-    %%         \multicolumn{1}{l|}{Corpus Brut} & \nla \tool{Wikipédia}  & \multicolumn{2}{c}{8.833 (65\% annoté)} \\ \toprule  
-    %%       \end{tabular}
-    %%     \end{table}
-    %% }
 \end{frame}
-
 
 \begin{frame}{Conditions initiales : les ressources - corpus} 
   \begin{itemize}
@@ -456,34 +386,6 @@
   \footnotetext[2]{\tiny Voir : http///als.wikipedia.org.}
 \end{frame}
 
-%% CI : outilsx
-%\begin{frame}{Conditions initiales : les outils existants}
-%%   \begin{enumerate}
-%%   \item German \tool{TreeTagger}~\cite{Schmid1997}\footnote{Utilisé selon la méthodologie décrite par \cite{bernhard_es_2013}}
-%%     \smash{\raisebox{1.8\dimexpr0.3\baselineskip-6.3\itemsep+5.5\parskip}{$\left.\rule{0pt}{1.5\dimexpr1\baselineskip+2\itemsep-1\parskip}\right\}$\ \parbox{2.8cm}{\center utilisés comme \\ \textbf{outils de pré-annotation}}}}  
-%%   \item \tool{MElt}~\cite{Denis2010}, \\ entraîné régulièrement avec nos \\ données annotées (\tool{MElt$_{ALS}$})\\
-%%   \end{enumerate}
-%%   \bigskip
-%%   \Wider[4em]{
-%%   \begin{table}[]
-%%     \centering
-%%       \resizebox{\linewidth}{!}{
-%%         \begin{tabular}{p{2cm}|cccccccccccc}
-%%           \toprule  
-%%                          & \textit{\textbf{Ùf}} & \textit{\textbf{e}}                 & \textit{\textbf{Grìeni-Lìnse}}       & \textit{\textbf{Bett}}               & \textit{\textbf{leje}}               & \textit{\textbf{ùn}}                 & \textit{\textbf{d'}}                & \textit{\textbf{Sauce}}              & \textit{\textbf{drùm}}              & \textit{\textbf{erùm}}              & \textit{\textbf{nàppìere}}    & \textit{\textbf{.}}           \\  \hline
-%% \tool{Treetagger}   &  {\color{red}\textsc{x}}           & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{pron}}                       & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}} & {\color{mylightgreen} \textbf{\textsc{punct}}} \\
-%% \tool{MElt$_{ALS}$} &  {\color{red}\textsc{propn}}       &  {\color{red}\textsc{verb}}                       &  {\color{red}\textsc{adj}}                         & {\color{mylightgreen} \textbf{\textsc{noun}}} &  {\color{red}\textsc{propn}}                       & {\color{mylightgreen} \textbf{\textsc{conj}}} & {\color{mylightgreen} \textbf{\textsc{det}}} & {\color{mylightgreen} \textbf{\textsc{noun}}} & {\color{mylightgreen} \textbf{\textsc{adv}}} & {\color{mylightgreen} \textbf{\textsc{adp}}} & {\color{mylightgreen} \textbf{\textsc{verb}}}& {\color{mylightgreen} \textbf{\textsc{punct}}}
-%% %% \\ \hline \hline 
-%% %% Annotation correcte & \textsc{adp}         & \textsc{det}                        & \textsc{noun}                        & \textsc{noun}                        & \textsc{verb}                        & \textsc{conj}                        & \textsc{det}                        & \textsc{noun}                        & \textsc{adv}                        & \textsc{adp}                        & \textsc{verb}             & {\color{mylightgreen} \textsc{punct}}
-%% \\ \toprule            
-
-%%     \end{tabular}
-%%     }
-%%   \end{table}
-%%   }
-%\end{frame}
-
-
 \begin{frame}{L'annotation collaborative avec \tool{Bisame}}
   \begin{center}
     \includegraphics[width=0.8\linewidth]{figures/annotation-experts.png}
@@ -498,7 +400,6 @@
   \hfill\cite{Fort2012}
 \end{frame}
 
-
 \begin{frame}{L'annotation collaborative avec \tool{Bisame}}
   \begin{center}
     \includegraphics[width=0.8\linewidth]{figures/annotation-bisame-ref-2.png}
@@ -507,11 +408,10 @@
 \end{frame}
 
 
-
+%% SECTION \tool{Bisame}\thinspace - une plate-forme d'annotation légèrement ludifiée
 \section{\tool{Bisame}\thinspace - une plate-forme d'annotation légèrement ludifiée}
 
 \subsection{Présentation de la plate-forme}
-
 
 \begin{frame}{\tool{Bisame}}
   \Wider[4em]{
@@ -539,6 +439,7 @@
     }    
   \end{center}
 \end{frame}
+
 \begin{frame}{Aide-mémoire \footnotemark[1]}
   \Wider[4em]{
   \begin{center}
@@ -567,9 +468,9 @@
     \end{itemize}
 \end{frame}
 
-
 %% synthèse des annotations obtenues
 \subsection{Traitement des annotations obtenues}
+
 \begin{frame}{Traitement des annotations concurrentes - 1}
   \centering
   \small  \textit{\textbf{Dr Mentelin hàt sina \uline{Stroßburger} Drukaréi grinda.}} (\og Mentelin a fondé son imprimerie strasbourgeoise \fg{}.)
@@ -598,20 +499,19 @@
   \visible<3->{\small À chaque participant $P$ est associé score de confiance \\ (réévalué régulièrement) \\~\\   $Confiance_{P}=\frac{NbAnn_{Ref,Correcte}}{NbAnn_{Ref}}$} \\ \bigskip
   \visible<4->{\small $\rightarrow$ ce score de confiance est reporté sur les \textbf{annotations} effectuées : \\~\\  $ScoreAnn=Confiance_{P}$}
 \end{frame}
-    
 
 \begin{frame}{Traitement des annotations concurrentes - 2}
   \centering
   \small calcul de l'étiquette la plus probable pour un token $T$: \\~\\
   \small $ScoreCat_{T,C_i}$=$1 - \prod_{j} (1-ScoreAnn_{T,U_j,C_i}))$ \\~\\
-  \small et $C_{T}=\operatorname*{arg\,max}_i(ScoreAnn_{T,C_i})$                
+  \small et $C_{T}=\operatorname*{arg\,max}_i(ScoreCat_{T,C_i})$                
   \begin{table}[!ht]
     \centering
     \resizebox{1\linewidth}{!}{
       \begin{tabular}{l|c|c}
         \toprule
         Catégorie choisie &  $ScoreAnn$  (Score de l'\textbf{annotation}) 
-        & $ScoreCat$ (Score de la \textbf{catégorie})
+        & $ScoreCat_{T,C_i}$ (Score de la \textbf{catégorie})
         \\ \hline
         \textsc{propn}                & $0,935$      &          \visible<2->{$0,935$}       \\ \hline \hline
         \multirow{3}{*}{\textsc{adj}} & $0,875$       &         \visible<2->{\multirow{3}{*}{$\color{red} \mathbf{0,991}$}} \\ \cline{2-2}
@@ -626,31 +526,12 @@
   \visible<2>{$\Rightarrow C_{\textbf{\textit{Stroßburger}}}=$\textsc{adj}}
 \end{frame}
 
-
-%%%% Résultats
+%% SECTION Résultats
 \section{Résultats et analyse}
-   
-    %% \centering
-    %%  \cite{Millour2017}
-
-  %%     %\item \textbf{F-mesure} moyenne de \tool{Bisame} sur le \uline{corpus de référence} : \textbf{92~\%}.
-
-  %% \visible<3->{
-  %%   \begin{table}[h!]
-  %%     \begin{tabular}{lcc}
-  %%       \toprule
-  %%       & \multicolumn{1}{l}{German \tool{TreeTagger}} & \multicolumn{1}{l}{\tool{MElt$_{ALS}$}} \\ \hline
-  %%       \sla Pièce de théâtre     & 83~\%                                       & 66~\%                     \\ \hline
-  %%       \nla Article Wikipédia & 85~\%                                       & 84~\%                   \\
-  %%       \toprule
-  %%     \end{tabular}
-  %%   \end{table}
-  %% }
-  %% \footnotetext[1]{16~628 annotations ont été effectuées au total.}
 
 %% Corpus annoté
-
 \subsection{La participation}
+
 \begin{frame}{La participation}
   \begin{figure}[h!tbp]
     \begin{center} 
@@ -717,13 +598,6 @@
   \end{figure}
   \vspace{-1.8cm}
   \hfill \includegraphics[width=0.5cm]{figures/caution.png} \\
-  %%  \Wider[4em]{\begin{figure}[h!tbp]
-  %%     \begin{center} 
-  %%       \includegraphics[width=1\textwidth]{figures/graphique-1-en.png}
-  %%     \end{center}
-  %% \end{figure}}
-  %% \\
-  %% \centering
   \bigskip
       \small mai 2016:  \small 29 participants ont produit 3~000 annotations \\
       \bigskip
@@ -731,8 +605,8 @@
 \end{frame}
 
 \subsection{Le corpus annoté}
+
 \begin{frame}{Un nouveau corpus annoté de l'alsacien}
-  %\Wider[3em]{
     \begin{itemize}
     \item \textbf{42 participants}
     \item \textbf{59} jours d'annotation
@@ -742,12 +616,8 @@
         \item<2-> 7~795 sur le corpus de référence (pour l'évaluation)
       \end{itemize}
       \end{itemize}
-  %}
     \visible<3->{$\rightarrow$ un nouveau corpus annoté de l'alsacien de \textbf{5~725 tokens}}\\
-    %\visible<3->{$\rightarrow$ Un outil d'annotation en parties du discours entraîné avec 250 phrases : \textbf{\tool{MElt$_{\mathbf{ALS,250}}$}}.}
 \end{frame}
-
-%% MElt entraîné
 
 \begin{frame}{Qualité du corpus annoté}
   \centering
@@ -771,6 +641,7 @@
 
 \subsection{L'outil d'annotation entraîné : \tool{MElt$_{ALS_{250}}$}}
 
+%% MElt entraîné
 \begin{frame}{Les performances de \tool{MElt$_{ALS}$}}
   \Wider[3em]{\begin{figure}[h!tbp]
       \begin{center} 
@@ -787,12 +658,10 @@
       \centering
 
     \tool{MElt$_{ALS_{250}}$} atteint \textbf{82~\%} d'exactitude sur notre corpus de test\\~\\
-    %\Wider[3em]{
-    \small pour 10 phrases d'environ 10 mots, 2 mots par phrase sont mal annotés \\
-  \scriptsize (\tool{MElt$_{FR}$} présente 97,7~\% d'exactitude \cite{Denis2010})  \\~\\
+      \visible<2->{\normalsize les performances du \tool{Stanford Tagger} sur l'alsacien sont presque atteintes mais c'est encore très insuffisant : } \\~\\
 
-  \visible<2>{\normalsize les performances du \tool{Stanford Tagger}  sur l'alsacien sont presque atteintes mais c'est encore très insuffisant}
-
+     \visible<3>{\small pour 10 phrases d'environ 10 mots, 2 mots par phrase sont mal annotés \\~\\
+  \scriptsize (\tool{MElt$_{FR}$} présente 97,7~\% d'exactitude \cite{Denis2010})} 
 \end{frame}
 
 
@@ -845,11 +714,9 @@
   \Wider[2em]{    
   \vspace{0.8cm}
     \begin{itemize}
-      %\item Reinforce community feeling \textit{within} the platform thanks to \textbf{social incentives}. %as they have been appreciated so far and have proved their efficiency elsewhere
     \item adapter le jeu d'étiquettes universel aux spécificités de l'alsacien
     \item<2-> travailler à une meilleure intégration de la diversité dialectale et orthographique
     \item<3-> adapter la plate-forme à une autre langue peu dotée : le créole guadeloupéen (\small projet en cours avec Gwladys Feler, étudiante en Master 1)
-      %\item<2-> Try to manage better dialectal diversity in the written form. % and I take advantage of this talk to say that if you have some references on the subject I would me really glad to have them ! 
     \end{itemize}
   }
 \end{frame}
